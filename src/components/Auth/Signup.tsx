@@ -1,21 +1,26 @@
 "use client";
+
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // ✅ Correct import for App Router
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SignupInput } from '@/types/user';
+
+const roles = ['admin', 'team', 'client', 'hr', 'staff'] as const;
 
 export default function Signup() {
   const [formData, setFormData] = useState<SignupInput>({
     name: '',
     email: '',
     password: '',
-    role: 'employee',
+    role: '' as SignupInput['role'], // Initially empty
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const router = useRouter(); // ✅ Using App Router's useRouter
+  const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -24,6 +29,12 @@ export default function Signup() {
     e.preventDefault();
     setLoading(true);
     setError('');
+
+    if (!formData.role) {
+      setError('Please select a user role.');
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/auth/signup', {
@@ -101,6 +112,27 @@ export default function Signup() {
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
+            </div>
+
+            <div>
+              <label htmlFor="role" className="block text-sm font-medium text-gray-700">
+                Select Role
+              </label>
+              <select
+                id="role"
+                name="role"
+                required
+                value={formData.role}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="">-- Select Role --</option>
+                {roles.map((role) => (
+                  <option key={role} value={role}>
+                    {role.charAt(0).toUpperCase() + role.slice(1)}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 

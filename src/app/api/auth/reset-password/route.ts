@@ -1,15 +1,31 @@
 import { NextResponse } from 'next/server';
 import { AuthService } from '@/services/auth';
-import { ResetPasswordInput } from '@/types/user';
 
 export async function POST(request: Request) {
   try {
-    const { token, newPassword }: ResetPasswordInput = await request.json();
+    const body = await request.json();
+    const { token, newPassword } = body;
+
+    // Basic validation
+    if (!token || !newPassword) {
+      return NextResponse.json(
+        { error: 'Both token and newPassword are required' },
+        { status: 400 }
+      );
+    }
+
+    if (newPassword.length < 8) {
+      return NextResponse.json(
+        { error: 'Password must be at least 8 characters long' },
+        { status: 400 }
+      );
+    }
+
     const user = await AuthService.resetPassword({ token, newPassword });
 
     return NextResponse.json({
       user,
-      message: 'Password reset successfully'
+      message: 'Password reset successfully',
     });
 
   } catch (error: any) {
