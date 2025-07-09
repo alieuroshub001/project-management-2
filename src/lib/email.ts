@@ -1,25 +1,20 @@
 import nodemailer from 'nodemailer';
 
-interface EmailOptions {
-  to: string;
-  subject: string;
-  text: string;
-  html: string;
-}
-
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // or your email provider
+  service: process.env.EMAIL_SERVICE,
   auth: {
-    user: process.env.EMAIL_USER,
+    user: process.env.EMAIL_USERNAME,
     pass: process.env.EMAIL_PASSWORD,
   },
 });
 
-export const sendEmail = async (options: EmailOptions): Promise<void> => {
+export const sendEmail = async (to: string, subject: string, html: string) => {
   try {
     await transporter.sendMail({
-      from: `"Project Management" <${process.env.EMAIL_USER}>`,
-      ...options,
+      from: process.env.EMAIL_FROM,
+      to,
+      subject,
+      html,
     });
   } catch (error) {
     console.error('Error sending email:', error);

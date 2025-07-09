@@ -49,3 +49,8 @@ export interface VerifyOTPInput {
   email: string;
   otp: string;
 }
+// Add this to your existing types in user.ts
+export interface ResetPasswordFormValues {
+  newPassword: string;
+  confirmPassword: string;
+}
