@@ -8,17 +8,28 @@ export const metadata: Metadata = {
 };
 
 export default function LoginPage() {
-  return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h1 className="text-center text-3xl font-bold text-gray-900">Sign in to your account</h1>
-      </div>
+return (
+  <div
+    className="min-h-screen flex flex-col justify-center items-center px-4"
+    style={{ backgroundColor: '#0F172A' }}
+  >
+    <div className="w-full max-w-md text-center space-y-4">
+      <h1 className="text-3xl font-bold" style={{ color: '#FFFFFF' }}>
+        Sign in to your account
+      </h1>
+    </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <LoginForm />
-        </div>
+    <div className="mt-8 w-full max-w-md">
+      <div
+        className="rounded-2xl shadow-lg backdrop-blur-md p-8 sm:px-10"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+        }}
+      >
+        <LoginForm />
       </div>
     </div>
-  );
+  </div>
+);
 }

@@ -47,83 +47,108 @@ export default function Signup() {
       setLoading(false);
     }
   };
+return (
+  <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#0F172A' }}>
+    <div
+      className="w-full max-w-md p-8 rounded-2xl shadow-xl backdrop-blur-md"
+      style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+      }}
+    >
+      <h2 className="text-3xl font-bold text-center mb-1" style={{ color: '#FFFFFF' }}>
+        Create an account ✨
+      </h2>
+      <p className="text-center text-sm mb-6" style={{ color: '#00FFC3' }}>
+        Join EurosHub to manage your workspace smartly
+      </p>
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center">Create an account</h2>
-        {error && <div className="text-red-500 text-center">{error}</div>}
-
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Full Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              disabled={loading}
-              className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                loading ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-            >
-              {loading ? 'Signing up...' : 'Sign up'}
-            </button>
-          </div>
-        </form>
-
-        <div className="text-center text-sm">
-          <span className="text-gray-600">Already have an account? </span>
-          <Link href="/auth/login" className="font-medium text-blue-600 hover:text-blue-500">
-            Log in
-          </Link>
+      {error && (
+        <div className="text-red-500 text-sm text-center bg-red-100/10 py-2 rounded mb-4">
+          {error}
         </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium mb-1" style={{ color: '#FFFFFF' }}>
+            Full Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded-lg border bg-transparent placeholder-gray-400 text-white focus:outline-none focus:ring-2"
+            placeholder="John Doe"
+            style={{
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+            }}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium mb-1" style={{ color: '#FFFFFF' }}>
+            Email Address
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded-lg border bg-transparent placeholder-gray-400 text-white focus:outline-none focus:ring-2"
+            placeholder="you@example.com"
+            style={{
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+            }}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="password" className="block text-sm font-medium mb-1" style={{ color: '#FFFFFF' }}>
+            Password
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="new-password"
+            required
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded-lg border bg-transparent placeholder-gray-400 text-white focus:outline-none focus:ring-2"
+            placeholder="••••••••"
+            style={{
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+            }}
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full py-3 rounded-lg font-semibold transition-all duration-300 text-white"
+          style={{
+            backgroundColor: loading ? '#17B6B2AA' : '#17B6B2',
+            cursor: loading ? 'not-allowed' : 'pointer',
+          }}
+        >
+          {loading ? 'Signing up...' : 'Sign up'}
+        </button>
+      </form>
+
+      <div className="text-center text-sm mt-6">
+        <span className="text-gray-300">Already have an account? </span>
+        <Link href="/auth/login" className="text-[#00FFC3] font-medium hover:underline">
+          Log in
+        </Link>
       </div>
     </div>
-  );
+  </div>
+);
 }

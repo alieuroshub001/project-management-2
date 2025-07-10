@@ -16,33 +16,44 @@ export default function ResetPasswordPage({ searchParams }: ResetPasswordPagePro
 
   if (!token) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 text-center">
-            <h1 className="text-2xl font-bold text-red-600">Invalid Token</h1>
-            <p className="mt-4 text-gray-600">
-              The password reset link is invalid or has expired. Please try resetting your password again.
-            </p>
-            <a
-              href="/forgot-password"
-              className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Request New Reset Link
-            </a>
-          </div>
+      <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#0F172A' }}>
+        <div
+          className="max-w-md w-full p-8 rounded-2xl shadow-xl backdrop-blur-md text-center"
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+          }}
+        >
+          <h1 className="text-2xl font-bold text-red-500">Invalid Token</h1>
+          <p className="mt-4 text-sm text-[#FFFFFF]">
+            The password reset link is invalid or has expired. Please try resetting your password again.
+          </p>
+          <a
+            href="/forgot-password"
+            className="mt-6 inline-block px-4 py-2 text-sm font-medium rounded-lg text-white transition-all"
+            style={{ backgroundColor: '#17B6B2' }}
+          >
+            Request New Reset Link
+          </a>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h1 className="text-center text-3xl font-bold text-gray-900">Set a new password</h1>
-      </div>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#0F172A' }}>
+      <div className="w-full max-w-md space-y-6">
+        <h1 className="text-center text-3xl font-bold" style={{ color: '#FFFFFF' }}>
+          Set a new password
+        </h1>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div
+          className="w-full p-8 rounded-2xl shadow-xl backdrop-blur-md"
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+          }}
+        >
           <ResetPasswordForm token={token} />
         </div>
       </div>

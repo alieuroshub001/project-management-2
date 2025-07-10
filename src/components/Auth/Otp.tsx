@@ -75,61 +75,81 @@ export default function VerifyOTP() {
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center">Verify Your Email</h2>
-        <p className="text-center text-gray-600">We've sent a 6-digit code to {email}</p>
-        {error && <div className="text-red-500 text-center">{error}</div>}
+ return (
+  <div
+    className="min-h-screen flex items-center justify-center px-4"
+    style={{ backgroundColor: '#0F172A' }}
+  >
+    <div
+      className="w-full max-w-md space-y-6 p-8 rounded-2xl shadow-xl backdrop-blur-md"
+      style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+      }}
+    >
+      <h2 className="text-2xl font-bold text-center" style={{ color: '#FFFFFF' }}>
+        Verify Your Email
+      </h2>
+      <p className="text-center text-sm" style={{ color: '#00FFC3' }}>
+        We've sent a 6-digit code to {email}
+      </p>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="otp" className="block text-sm font-medium text-gray-700">
-                Verification Code
-              </label>
-              <input
-                id="otp"
-                name="otp"
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]{6}"
-                maxLength={6}
-                required
-                value={otp}
-                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-center text-xl tracking-widest"
-              />
-            </div>
-          </div>
+      {error && <div className="text-red-400 text-center">{error}</div>}
 
-          <div>
-            <button
-              type="submit"
-              disabled={loading || otp.length !== 6}
-              className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                loading || otp.length !== 6 ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-            >
-              {loading ? 'Verifying...' : 'Verify'}
-            </button>
-          </div>
-        </form>
-
-        <div className="text-center text-sm">
-          <span className="text-gray-600">Didn't receive a code? </span>
-          <button
-            type="button"
-            onClick={handleResendOTP}
-            disabled={resending}
-            className={`font-medium text-blue-600 hover:text-blue-500 ${
-              resending ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-          >
-            {resending ? 'Sending...' : 'Resend code'}
-          </button>
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="otp" className="block text-sm font-medium mb-1" style={{ color: '#FFFFFF' }}>
+            Verification Code
+          </label>
+          <input
+            id="otp"
+            name="otp"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]{6}"
+            maxLength={6}
+            required
+            value={otp}
+            onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
+            className="w-full px-4 py-3 border rounded-md text-center text-xl tracking-widest focus:outline-none"
+            style={{
+              backgroundColor: 'transparent',
+              borderColor: 'rgba(255, 255, 255, 0.1)',
+              color: '#FFFFFF',
+            }}
+          />
         </div>
+
+        <button
+          type="submit"
+          disabled={loading || otp.length !== 6}
+          className={`w-full py-2 px-4 rounded-md text-sm font-medium ${
+            loading || otp.length !== 6 ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          style={{
+            backgroundColor: '#17B6B2',
+            color: '#FFFFFF',
+          }}
+        >
+          {loading ? 'Verifying...' : 'Verify'}
+        </button>
+      </form>
+
+      <div className="text-center text-sm">
+        <span style={{ color: '#FFFFFF' }}>Didn't receive a code? </span>
+        <button
+          type="button"
+          onClick={handleResendOTP}
+          disabled={resending}
+          className={`font-medium ${
+            resending ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          style={{ color: '#00FFC3' }}
+        >
+          {resending ? 'Sending...' : 'Resend code'}
+        </button>
       </div>
     </div>
-  );
+  </div>
+);
 }
