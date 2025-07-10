@@ -1,21 +1,26 @@
 "use client";
+
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // ✅ Correct import for App Router
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SignupInput } from '@/types/user';
+
+const roles = ['admin', 'team', 'client', 'hr', 'staff'] as const;
 
 export default function Signup() {
   const [formData, setFormData] = useState<SignupInput>({
     name: '',
     email: '',
     password: '',
-    role: 'employee',
+    role: '' as SignupInput['role'], // Initially empty
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const router = useRouter(); // ✅ Using App Router's useRouter
+  const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -24,6 +29,12 @@ export default function Signup() {
     e.preventDefault();
     setLoading(true);
     setError('');
+
+    if (!formData.role) {
+      setError('Please select a user role.');
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/auth/signup', {
@@ -109,25 +120,22 @@ return (
           />
         </div>
 
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium mb-1" style={{ color: '#FFFFFF' }}>
-            Password
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="new-password"
-            required
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border bg-transparent placeholder-gray-400 text-white focus:outline-none focus:ring-2"
-            placeholder="••••••••"
-            style={{
-              borderColor: 'rgba(255, 255, 255, 0.2)',
-            }}
-          />
-        </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="new-password"
+                required
+                value={formData.password}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+          </div>
 
         <button
           type="submit"

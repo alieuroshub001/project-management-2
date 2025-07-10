@@ -1,4 +1,4 @@
-//types/project.ts
+// types/project.ts
 
 export interface Project {
   _id?: string;
@@ -13,6 +13,9 @@ export interface Project {
   createdBy: string; // User ID
   teamMembers: string[]; // User IDs
   tags?: string[];
+  color?: string; // For color-coding in Gantt/Calendar views
+  webhookUrl?: string; // For notifications
+  isArchived?: boolean; // Alternative to status 'archived'
 }
 
 export interface CreateProjectInput {
@@ -24,4 +27,5 @@ export interface CreateProjectInput {
   endDate?: Date | string;
   teamMembers?: string[];
   tags?: string[];
+  color?: string;
 }

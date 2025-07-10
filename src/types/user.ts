@@ -1,11 +1,13 @@
-//types/user.ts
+// types/user.ts
+
+export type Role = 'admin' | 'team' | 'client' | 'hr' | 'staff';
 
 export interface User {
   _id?: string;
   name: string;
   email: string;
   password?: string; // Hashed in DB
-  role: 'admin' | 'manager' | 'employee' | 'client';
+  role: Role;
   avatar?: string;
   department?: string;
   position?: string;
@@ -16,19 +18,45 @@ export interface User {
   createdAt: Date;
   updatedAt: Date;
   refreshToken?: string;
+  phone?: string; // For employee directory
+  hireDate?: Date; // For HR management
+  leaveBalance?: number; // For leave tracking
+  status?: 'active' | 'on-leave' | 'offboarded'; // For HR
 }
 
+// Auth related types
 export interface AuthResponse {
   user: Omit<User, 'password' | 'otp' | 'otpExpiry' | 'refreshToken'>;
   accessToken: string;
   refreshToken: string;
+  expiresIn: number; // Token expiry in seconds
 }
 
+export interface TokenPayload {
+  userId: string;
+  role: Role;
+  email: string;
+  iat?: number; // Issued at
+  exp?: number; // Expiry
+}
+
+export interface Session {
+  userId: string;
+  token: string;
+  expiresAt: Date;
+  ipAddress?: string;
+  userAgent?: string;
+  createdAt: Date;
+}
+
+// Input types
 export interface SignupInput {
   name: string;
   email: string;
   password: string;
-  role?: User['role']; // Optional with default
+  role?: Role;
+  department?: string;
+  position?: string;
 }
 
 export interface LoginInput {
@@ -41,7 +69,7 @@ export interface ForgotPasswordInput {
 }
 
 export interface ResetPasswordInput {
-  token: string; // OTP token
+  token: string;
   newPassword: string;
 }
 
@@ -49,8 +77,16 @@ export interface VerifyOTPInput {
   email: string;
   otp: string;
 }
-// Add this to your existing types in user.ts
+
 export interface ResetPasswordFormValues {
   newPassword: string;
   confirmPassword: string;
+}
+
+export interface UpdateProfileInput {
+  name?: string;
+  avatar?: string;
+  phone?: string;
+  department?: string;
+  position?: string;
 }

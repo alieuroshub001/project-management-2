@@ -1,4 +1,4 @@
-//types/task.ts
+// types/task.ts
   
 export interface Task {
   _id?: string;
@@ -15,6 +15,9 @@ export interface Task {
   comments: Comment[];
   attachments: Attachment[];
   checklist?: ChecklistItem[];
+  columnId?: string; // For Kanban board columns
+  order?: number; // For sorting in Kanban
+  labels?: string[]; // For additional categorization
 }
 
 export interface Comment {
@@ -23,6 +26,8 @@ export interface Comment {
   createdAt: Date;
   createdBy: string; // User ID
   mentions: string[]; // User IDs
+  isEdited?: boolean;
+  editedAt?: Date;
 }
 
 export interface Attachment {
@@ -33,10 +38,13 @@ export interface Attachment {
   size: number;
   uploadedAt: Date;
   uploadedBy: string; // User ID
+  thumbnailUrl?: string; // For image previews
 }
 
 export interface ChecklistItem {
   _id?: string;
   text: string;
   completed: boolean;
+  completedAt?: Date;
+  completedBy?: string; // User ID
 }
