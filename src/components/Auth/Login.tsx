@@ -47,7 +47,7 @@ export default function Login() {
     }
   };
 return (
-  <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#0F172A' }}>
+  <div className="min-h-screen flex items-center justify-center px-4 " style={{ backgroundColor: '#0F172A' }}>
     <div
       className="w-full max-w-md p-8 rounded-2xl shadow-xl backdrop-blur-md"
       style={{
