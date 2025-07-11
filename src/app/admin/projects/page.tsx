@@ -1,12 +1,12 @@
-import SuperAdminLayout from '@/components/Admin/Layout';
-import ProjectsTable from '@/components/Admin/ProjectTable';
+import SuperAdminLayout from '@/components/Admin/Layout/Layout';
+import ProjectTable from '@/components/Admin/Projects/ProjectTable';
 
 export default function ProjectsPage() {
   return (
-    <SuperAdminLayout toggleSidebar={() => {}}>
+    <SuperAdminLayout>
       <div className="p-6">
         <h1 className="text-3xl font-bold mb-6">Project Management</h1>
-        <ProjectsTable />
+        <ProjectTable />
       </div>
     </SuperAdminLayout>
   );

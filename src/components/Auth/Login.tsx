@@ -39,7 +39,7 @@ export default function Login() {
       }
 
       // Store user data and redirect (you might use context or state management)
-      router.push('/dashboard');
+      router.push('/admin/dashboard');
     } catch (err: any) {
       setError(err.message);
     } finally {

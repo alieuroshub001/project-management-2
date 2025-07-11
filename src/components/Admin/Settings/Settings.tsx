@@ -1,3 +1,4 @@
+// components/Admin/Settings/Settings.tsx
 "use client"
 import { useState } from 'react';
 import { FiSave, FiLock, FiMail, FiGlobe, FiBell } from 'react-icons/fi';
@@ -9,6 +10,9 @@ export default function Settings() {
     adminEmail: 'admin@euroshub.com',
     notificationsEnabled: true,
     maintenanceMode: false,
+    systemAlerts: true,
+    userActivities: true,
+    securityEvents: true
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,6 +90,7 @@ export default function Settings() {
                 <label className="block mb-1">SMTP Host</label>
                 <input
                   type="text"
+                  name="smtpHost"
                   placeholder="smtp.example.com"
                   className="w-full p-2 rounded-lg bg-secondary border-none focus:ring-2 focus:ring-primary focus:outline-none"
                 />
@@ -158,15 +163,33 @@ export default function Settings() {
                 <label className="block mb-1">Notification Types</label>
                 <div className="space-y-2">
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded text-primary focus:ring-primary" checked />
+                    <input 
+                      type="checkbox" 
+                      name="systemAlerts"
+                      checked={formData.systemAlerts}
+                      onChange={handleChange}
+                      className="rounded text-primary focus:ring-primary" 
+                    />
                     <span>System Alerts</span>
                   </label>
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded text-primary focus:ring-primary" checked />
+                    <input 
+                      type="checkbox" 
+                      name="userActivities"
+                      checked={formData.userActivities}
+                      onChange={handleChange}
+                      className="rounded text-primary focus:ring-primary" 
+                    />
                     <span>User Activities</span>
                   </label>
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded text-primary focus:ring-primary" checked />
+                    <input 
+                      type="checkbox" 
+                      name="securityEvents"
+                      checked={formData.securityEvents}
+                      onChange={handleChange}
+                      className="rounded text-primary focus:ring-primary" 
+                    />
                     <span>Security Events</span>
                   </label>
                 </div>

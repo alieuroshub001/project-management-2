@@ -20,6 +20,7 @@ ChartJS.register(
 );
 
 export default function ProjectActivity() {
+
   const data = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     datasets: [

@@ -4,6 +4,7 @@ import ProjectActivity from './ProjectActivity';
 import RecentUsers from './RecentUser';
 
 export default function Dashboard() {
+
   const stats = [
     {
       title: 'Total Projects',

@@ -1,28 +1,9 @@
-"use client"
+"use client";
 import { FiSearch, FiBell, FiMenu } from 'react-icons/fi';
 import { useState } from 'react';
 import Image from 'next/image';
-import Navbar from './Navbar';
-import { ReactNode } from 'react';
 
-export default function SuperAdminLayout({ 
-  children,
-  toggleSidebar 
-}: { 
-  children: ReactNode;
-  toggleSidebar: () => void;
-}) {
-  return (
-    <div>
-      <SuperAdminHeader toggleSidebar={toggleSidebar} />
-      <Navbar toggleSidebar={toggleSidebar} />
-      {children}
-    </div>
-  );
-}
-
-// Header component for Super Admin
-function SuperAdminHeader({ toggleSidebar }: { toggleSidebar: () => void }) {
+export default function AdminHeader({ toggleSidebar }: { toggleSidebar: () => void }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
@@ -75,4 +56,4 @@ function SuperAdminHeader({ toggleSidebar }: { toggleSidebar: () => void }) {
       </div>
     </header>
   );
-};
+}
