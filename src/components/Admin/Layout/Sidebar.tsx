@@ -44,8 +44,8 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       href: '/admin/users',
       submenu: [
         { label: 'All Users', href: '/admin/users' },
-        { label: 'Admins', href: '/admin/users/admins' },
-        { label: 'Project Managers', href: '/admin/users/managers' },
+        { label: 'Admins', href: '/admin/users/adminuser' },
+        { label: 'Project Managers', href: '/admin/users/projectmanager' },
       ]
     },
     {
@@ -55,20 +55,15 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       href: '/admin/projects',
       submenu: [
         { label: 'All Projects', href: '/admin/projects' },
-        { label: 'Active', href: '/admin/projects/active' },
-        { label: 'Completed', href: '/admin/projects/completed' },
+        { label: 'Active', href: '/admin/projects/activeprojects' },
+        { label: 'Completed', href: '/admin/projects/completedprojects' },
       ]
     },
     {
       id: 'chat',
       label: 'Chat',
       icon: <FiMessageSquare size={18} />,
-      href: '/admin/chat',
-      submenu: [
-        { label: 'Team Chat', href: '/admin/chat/team' },
-        { label: 'Admin Chat', href: '/admin/chat/adminx' },
-        { label: 'Client Chat', href: '/admin/chat/client' },
-      ]
+      href: '/admin/chat'
     },
     {
       id: 'settings',
@@ -77,8 +72,8 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       href: '/admin/settings',
       submenu: [
         { label: 'General', href: '/admin/settings' },
-        { label: 'Security', href: '/admin/settings/security' },
-        { label: 'Notifications', href: '/admin/settings/notifications' },
+        { label: 'Security', href: '/admin/settings/securitysetting' },
+        { label: 'Notifications', href: '/admin/settings/notificationsetting' },
       ]
     }
   ];
