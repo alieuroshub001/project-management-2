@@ -28,12 +28,12 @@ export default function AdminXChat() {
             key={msg.id}
             className={`max-w-xs p-3 rounded-lg ${
               msg.sender === 'user'
-                ? 'bg-primary text-white ml-auto'
+                ? 'bg-primary text-black ml-auto'
                 : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white'
             }`}
           >
             <p>{msg.text}</p>
-            <span className="text-xs block mt-1 text-gray-300">{msg.time}</span>
+            <span className="text-xs block mt-1 text-cyan-300">{msg.time}</span>
           </div>
         ))}
       </div>
@@ -46,9 +46,9 @@ export default function AdminXChat() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-          className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white rounded-lg focus:outline-none"
+          className="flex-1 px-4 py-2 bg-black-100 dark:bg-gray-800 text-black-800 dark:text-white rounded-lg focus:outline-none"
         />
-        <button onClick={sendMessage} className="bg-primary text-white px-4 py-2 rounded-lg">
+        <button onClick={sendMessage} className="bg-primary text-black px-4 py-2 rounded-lg">
           Send
         </button>
       </div>

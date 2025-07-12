@@ -18,7 +18,7 @@ export default function ActivityLogs() {
         {logs.map((log, index) => (
           <div key={index} className="flex justify-between">
             <span>{log.user} - {log.action}</span>
-            <span className="text-gray-400 text-sm">{log.time}</span>
+            <span className="text-cyan-300 text-sm">{log.time}</span>
           </div>
         ))}
       </div>

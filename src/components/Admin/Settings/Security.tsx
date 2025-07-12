@@ -24,7 +24,7 @@ export default function SecuritySettings() {
               onClick={() => setTwoFactorEnabled(!twoFactorEnabled)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 twoFactorEnabled
-                  ? 'bg-red-500 text-white hover:bg-red-600'
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
                   : 'bg-[var(--primary)] text-white hover:bg-[var(--accent)]'
               }`}
             >
@@ -43,7 +43,7 @@ export default function SecuritySettings() {
               onClick={() => setLoginAlerts(!loginAlerts)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 loginAlerts
-                  ? 'bg-red-500 text-white hover:bg-red-600'
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
                   : 'bg-[var(--primary)] text-white hover:bg-[var(--accent)]'
               }`}
             >

@@ -84,7 +84,8 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       icon: <FiSettings size={18} />,
       href: '/admin/settings',
       submenu: [
-        { label: 'General', href: '/admin/settings' },
+        { label: 'Settings', href: '/admin/settings' },
+        { label: 'General', href: '/admin/settings/generalsetting' },
         { label: 'Security', href: '/admin/settings/securitysetting' },
         { label: 'Notifications', href: '/admin/settings/notificationsetting' },
       ]

@@ -16,8 +16,8 @@ const projectManagers = [
   },
   {
     id: 2,
-    name: 'Bilal Qureshi',
-    email: 'bilal@euros.com',
+    name: 'Amna Khan',
+    email: 'amna@euros.com',
     totalProjects: 6,
     completedProjects: 6,
     ongoingProjects: 0,
@@ -47,13 +47,13 @@ export default function ProjectManagement() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <h2 className="text-2xl font-bold text-[var(--foreground)]">Project Managers</h2>
         <div className="relative w-full max-w-xs">
-          <FiSearch className="absolute top-3 left-3 text-gray-400" />
+          <FiSearch className="absolute top-3 left-3 " />
           <input
             type="text"
             placeholder="Search managers..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-[var(--card-bg)] text-white border border-[var(--border-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] placeholder-gray-400"
+            className="w-full pl-10 pr-4 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] placeholder-gray-400"
           />
         </div>
       </div>
@@ -66,13 +66,13 @@ export default function ProjectManagement() {
           >
             <div className="mb-3">
               <h3 className="text-xl font-semibold text-[var(--foreground)]">{manager.name}</h3>
-              <p className="text-sm text-gray-400">{manager.email}</p>
+              <p className="text-sm text-black-400">{manager.email}</p>
             </div>
-            <div className="text-sm text-gray-300 space-y-2 mb-4">
-              <p>Total Projects: <span className="text-white font-medium">{manager.totalProjects}</span></p>
+            <div className="text-sm text-black-300 space-y-2 mb-4">
+              <p>Total Projects: <span className="text-black font-medium">{manager.totalProjects}</span></p>
               <p>Completed: <span className="text-green-400 font-medium">{manager.completedProjects}</span></p>
               <p>Ongoing: <span className="text-yellow-400 font-medium">{manager.ongoingProjects}</span></p>
-              <p>Last Project: <span className="text-white">{manager.lastProject}</span></p>
+              <p>Last Project: <span className="text-black">{manager.lastProject}</span></p>
             </div>
             <div className="flex justify-end">
               <Link

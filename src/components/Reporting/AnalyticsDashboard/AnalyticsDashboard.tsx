@@ -21,7 +21,7 @@ export default function AnalyticsDashboard() {
             key={index}
             className="bg-card border border-border p-6 rounded-xl text-center "
           >
-            <p className="text-lg font-medium text-gray-300">{kpi.label}</p>
+            <p className="text-lg font-medium text-blue-400">{kpi.label}</p>
             <p className="text-3xl font-bold text-accent mt-2">{kpi.value}</p>
           </div>
         ))}

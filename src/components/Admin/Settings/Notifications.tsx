@@ -25,7 +25,7 @@ export default function NotificationSettings() {
               onClick={() => setEmailNotif(!emailNotif)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 emailNotif
-                  ? 'bg-red-500 text-white hover:bg-red-600'
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
                   : 'bg-[var(--primary)] text-white hover:bg-[var(--accent)]'
               }`}
             >
@@ -35,7 +35,7 @@ export default function NotificationSettings() {
         </div>
 
         <div className="p-5 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)]">
-          <div className="flex justify-between items-center">
+           <div className="flex justify-between items-center">
             <div>
               <h4 className="text-white font-medium">SMS Notifications</h4>
               <p className="text-sm text-gray-400">Receive SMS alerts for critical updates.</p>
@@ -44,7 +44,7 @@ export default function NotificationSettings() {
               onClick={() => setSmsNotif(!smsNotif)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 smsNotif
-                  ? 'bg-red-500 text-white hover:bg-red-600'
+                  ? 'bg-blue-500 text-white hover:bg-blue-300'
                   : 'bg-[var(--primary)] text-white hover:bg-[var(--accent)]'
               }`}
             >
@@ -63,7 +63,7 @@ export default function NotificationSettings() {
               onClick={() => setPushNotif(!pushNotif)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 pushNotif
-                  ? 'bg-red-500 text-white hover:bg-red-600'
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
                   : 'bg-[var(--primary)] text-white hover:bg-[var(--accent)]'
               }`}
             >

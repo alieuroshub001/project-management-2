@@ -39,15 +39,15 @@ export default function CompletedProject() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-white">Completed Projects</h2>
+        <h2 className="text-xl font-semibold text-black">Completed Projects</h2>
         <div className="relative max-w-xs w-full">
-          <FiSearch className="absolute top-3 left-3 text-gray-400" />
+          <FiSearch className="absolute top-3 left-3 text-black-400" />
           <input
             type="text"
             placeholder="Search completed projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-lg bg-secondary text-white border border-[var(--border-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+            className="w-full pl-10 pr-4 py-2 rounded-lg bg-secondary text-black border border-[var(--border-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
           />
         </div>
       </div>
@@ -59,11 +59,11 @@ export default function CompletedProject() {
             className="p-5 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] shadow hover:shadow-lg transition"
           >
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-lg font-semibold text-white">{project.name}</h3>
+              <h3 className="text-lg font-semibold text-black">{project.name}</h3>
               <span className="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded-full">{project.status}</span>
             </div>
             <p className="text-sm text-gray-300 mb-4">{project.description}</p>
-            <div className="flex justify-between items-center text-sm text-gray-400">
+            <div className="flex justify-between items-center text-sm text-black-400">
               <span>Completed: {project.completedAt}</span>
               <Link
                 href={`/projects/${project.id}`}

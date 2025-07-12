@@ -9,8 +9,9 @@ export default function ExportButtons() {
     <div className="p-6">
       <h2 className="text-2xl font-bold text-primary mb-4">Export Reports</h2>
       <div className="flex gap-4">
-        <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Export CSV</button>
-        <button className="bg-accent text-black px-4 py-2 rounded-md hover:bg-opacity-80">Export PDF</button>
+      <button className="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Export CSV</button>
+
+        <button className="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Export PDF</button>
       </div>
     </div>
   );
