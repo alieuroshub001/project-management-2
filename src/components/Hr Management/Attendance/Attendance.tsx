@@ -25,7 +25,7 @@ export default function Attendance() {
         {attendanceData.map(({ date, status }) => (
           <div
             key={date}
-            className="bg-card border border-border p-4 rounded-xl text-white flex flex-col items-center"
+            className="bg-card border border-border p-4 rounded-xl flex flex-col items-center"
           >
             <p className="text-sm font-medium">{date}</p>
             <span

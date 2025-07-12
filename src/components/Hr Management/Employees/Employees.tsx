@@ -20,7 +20,7 @@ export default function Employees() {
         {employees.map(emp => (
           <div
             key={emp.id}
-            className="bg-card border border-border p-4 rounded-xl shadow-sm text-white"
+            className="bg-card border border-border p-4 rounded-xl shadow-sm "
           >
             <h3 className="text-lg font-semibold">{emp.name}</h3>
             <p className="text-sm text-gray-300">{emp.email}</p>

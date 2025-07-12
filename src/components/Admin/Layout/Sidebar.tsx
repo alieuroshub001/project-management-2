@@ -66,6 +66,19 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       href: '/admin/chat'
     },
     {
+      id: 'reporting',
+      label: 'reporting',
+      icon: <FiFolder size={18} />,
+      href: '/admin/reporting',
+      submenu: [
+        { label: 'Activity Logs', href: '/reporting/activity-logs' },
+        { label: 'Analytics', href: '/reporting/analytics' },
+        { label: 'Export', href: '/reporting/export' },
+        { label: 'Task Report', href: '/reporting/task-report' },
+      ]
+    },
+
+    {
       id: 'settings',
       label: 'Settings',
       icon: <FiSettings size={18} />,

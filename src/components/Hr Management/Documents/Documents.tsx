@@ -27,7 +27,7 @@ export default function Documents() {
         <input
           type="file"
           onChange={handleFileChange}
-          className="w-full text-sm text-white"
+          className="w-full text-sm "
         />
         {selectedFile && (
           <div className="text-sm text-foreground">
@@ -37,7 +37,7 @@ export default function Documents() {
         )}
         <button
           onClick={handleUpload}
-          className="bg-primary text-white px-6 py-2 rounded hover:bg-opacity-90"
+          className="bg-primary  px-6 py-2 rounded hover:bg-opacity-90"
         >
           Upload
         </button>

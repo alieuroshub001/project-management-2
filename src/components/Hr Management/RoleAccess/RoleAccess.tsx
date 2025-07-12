@@ -17,7 +17,7 @@ export default function RoleAccess() {
       <select
         value={role}
         onChange={(e) => setRole(e.target.value)}
-        className="mb-6 px-4 py-2 rounded-md border border-border bg-background text-white"
+        className="mb-6 px-4 py-2 rounded-md border border-border bg-background "
       >
         {roles.map(r => (
           <option key={r} value={r}>{r}</option>

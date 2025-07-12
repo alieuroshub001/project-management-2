@@ -56,7 +56,7 @@ export default function Leave() {
         </div>
         <button
           type="submit"
-          className="bg-primary hover:bg-teal-600 text-white px-6 py-2 rounded-md"
+          className="bg-primary hover:bg-teal-600 px-6 py-2 rounded-md"
         >
           Submit
         </button>
